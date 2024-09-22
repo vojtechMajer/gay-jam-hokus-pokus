@@ -1,7 +1,7 @@
 extends Node
 class_name GridManager
 
-@onready var ground: TileMapLayer = $TileMap/Ground
+@onready var ground: TileMapLayer = $Ground
 
 static var GRID_WIDTH = 10
 static var GRID_HEIGHT = 10
