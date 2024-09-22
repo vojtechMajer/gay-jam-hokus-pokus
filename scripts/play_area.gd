@@ -4,10 +4,12 @@ extends Node2D
 @export var grid_height := 30
 @export var layer_count := 4
 @export var tile_set_to_use: TileSet
+@export var ground_level_atlas_coords: Array[Vector2i]
 
 var active_layer_id
 var layers: Array[TileMapLayer]
 @onready var placeholder_tile: Sprite2D = $PlaceholderTile
+
 
 
 func _ready() -> void:
@@ -42,7 +44,7 @@ func spawn_layers():
 		## Leave last layer empty (for buildings slots)
 		if i != layer_count-1:
 			## (0,0), (-1,-1), ...
-			fill_up(new_tile_layer, Vector2i(-i, -i), Vector2i(3,0))
+			fill_up(new_tile_layer, Vector2i(-i, -i), ground_level_atlas_coords[i])
 
 # test funkce
 func fill_up(layer: TileMapLayer, start_pos: Vector2i, atlas_coord: Vector2i):
