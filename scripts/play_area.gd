@@ -11,17 +11,17 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var tile = layers[0].local_to_map(get_global_mouse_position())
-	if (Input.is_action_just_released("scrollUp")):
+	if (Input.is_action_just_released("scroll_up")):
 		if (layer!=1):
 			layers[layer].modulate.a8=50
 			layer-=1
-	if (Input.is_action_just_released("scrollDown")):
+	if (Input.is_action_just_released("scroll_down")):
 		if (layer!=5):
 			layer+=1
 			layers[layer].modulate.a8=255
 
 func _input(event: InputEvent):
-	var tile = layers[0].local_to_map(event.position)
+	var tile = layers[0].local_to_map(get_global_mouse_position())
 	if event.is_action_pressed("place_tile"):
 		if (tile.x <= playSize-layer)&&(tile.y <= playSize-layer)&&(tile.x >= 0-layer)&&(tile.y >= 0-layer):
 			layers[layer].set_cell(tile,0,Vector2(0,0),0)
