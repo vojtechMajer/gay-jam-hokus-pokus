@@ -1,10 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://smqa85mov0bs"]
+[gd_scene load_steps=3 format=3 uid="uid://smqa85mov0bs"]
 
 [ext_resource type="PackedScene" uid="uid://dj3hwqiysb0ib" path="res://scenes/play_area.tscn" id="1_wjoxl"]
+[ext_resource type="TileSet" uid="uid://dry1h5cd1y8dj" path="res://tile-sets/game_tile_Set.tres" id="2_qgglh"]
 
 [node name="game" type="Node2D"]
 
-[node name="playArea" parent="." instance=ExtResource("1_wjoxl")]
+[node name="PlayArea" parent="." instance=ExtResource("1_wjoxl")]
+tile_set_to_use = ExtResource("2_qgglh")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-1, 254)
