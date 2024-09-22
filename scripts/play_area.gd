@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 	var tile = $TileMapLayer6.local_to_map(get_global_mouse_position())
 	if (Input.is_action_just_released("scrollUp")):
 		if (layer!=1):
-			layers[layer].modulate.a8=50
+			layers[layer].modulate.a8=10
 			layer-=1
 	if (Input.is_action_just_released("scrollDown")):
 		if (layer!=5):
