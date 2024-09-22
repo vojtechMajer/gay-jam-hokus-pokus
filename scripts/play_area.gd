@@ -58,7 +58,6 @@ func _input(event: InputEvent):
 		var tile_pos = layers[0].local_to_map(get_global_mouse_position()) 
 		place_tile(tile_pos, Vector2i(0,0))
 
-
 func place_tile(tile_pos: Vector2i, atlas_coords: Vector2i):
 	if (tile_pos.x <= grid_width-1-active_layer_id)&&(tile_pos.y <= grid_height-1-active_layer_id)&&(tile_pos.x >= 0-active_layer_id)&&(tile_pos.y >= 0-active_layer_id):
 		layers[active_layer_id].set_cell(tile_pos,0,atlas_coords,0)
