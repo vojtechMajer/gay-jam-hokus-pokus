@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3if0iioq5cci"]
+[gd_scene load_steps=7 format=3 uid="uid://d3if0iioq5cci"]
 
 [ext_resource type="Texture2D" uid="uid://dq1bc06x1268b" path="res://assets/ui_sprites/background_v1.png" id="1_bxfhj"]
+[ext_resource type="Script" path="res://scripts/ui_menu.gd" id="1_ikved"]
 [ext_resource type="StyleBox" uid="uid://bxt5khmvgldh3" path="res://assets/themes/button_theme_hover.tres" id="2_niese"]
 [ext_resource type="StyleBox" uid="uid://c62folgbas3yb" path="res://assets/themes/button_theme.tres" id="3_wfi47"]
 [ext_resource type="FontFile" uid="uid://bfr43sypgubgj" path="res://resources/pixolletta8px/Pixolletta8px.ttf" id="4_88dqp"]
@@ -19,6 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ikved")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -55,6 +57,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 4
 theme_override_constants/shadow_offset_y = 4
 theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_88dqp")
 theme_override_font_sizes/font_size = 60
 text = "Game Title"
 horizontal_alignment = 1
@@ -93,3 +96,6 @@ theme_override_fonts/font = ExtResource("4_88dqp")
 theme_override_font_sizes/font_size = 40
 text = "Quit
 "
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
