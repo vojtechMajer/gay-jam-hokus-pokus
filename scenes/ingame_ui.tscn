@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://m6ujdnw7pjsv"]
+
+[ext_resource type="Texture2D" uid="uid://cplogi4yh8dbm" path="res://assets/ui_bottom_panel.png" id="1_1qbww"]
+[ext_resource type="Theme" uid="uid://crtgb2whnjsci" path="res://assets/themes/button_house.tres" id="2_bf67y"]
+[ext_resource type="Theme" uid="uid://dhsl3wvfc2ux" path="res://assets/themes/button_farm.tres" id="3_87pth"]
+[ext_resource type="Theme" uid="uid://0ehqjak7ypcp" path="res://assets/themes/button_towhall.tres" id="4_u0cyl"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -122.0
+offset_right = 218.0
+grow_vertical = 0
+texture = ExtResource("1_1qbww")
+region_rect = Rect2(7, 8, 387, 134)
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="Spacing" type="Control" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Spacing" type="Control" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("2_bf67y")
+
+[node name="Button2" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("3_87pth")
+
+[node name="Button3" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme = ExtResource("4_u0cyl")
