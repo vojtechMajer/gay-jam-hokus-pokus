@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxkw2ywdfeuhr"
-path="res://.godot/imported/Sprite_pro_hru_v7.png-88591025e5a7cfe78a725c20546f06f6.ctex"
+uid="uid://wfy5c2023qm2"
+path="res://.godot/imported/Sprite_pro_hru_v8.png-9bef5d7c87b4904128c7dcd17053e7f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/game_sprites/Sprite_pro_hru_v7.png"
-dest_files=["res://.godot/imported/Sprite_pro_hru_v7.png-88591025e5a7cfe78a725c20546f06f6.ctex"]
+source_file="res://assets/Sprite_pro_hru_v8.png"
+dest_files=["res://.godot/imported/Sprite_pro_hru_v8.png-9bef5d7c87b4904128c7dcd17053e7f4.ctex"]
 
 [params]
 
