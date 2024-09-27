@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://m4lce17c5qjq"]
+
+[ext_resource type="Script" path="res://scripts/FoxyTest.cs" id="1_jq0tg"]
+[ext_resource type="TileSet" uid="uid://dry1h5cd1y8dj" path="res://tile-sets/game_tile_Set.tres" id="2_qnrgj"]
+[ext_resource type="Script" path="res://scripts/CamManager.cs" id="3_68r0y"]
+[ext_resource type="Texture2D" uid="uid://b4ypj3q22n0oq" path="res://sprites/placeholder-tile-top.png" id="4_53cuy"]
+
+[node name="FoxyTest" type="Node2D" node_paths=PackedStringArray("Placeholder")]
+script = ExtResource("1_jq0tg")
+LayerCount = 4
+TileSet = ExtResource("2_qnrgj")
+LayersAtlasPos = [Vector2i(3, 0), Vector2i(5, 0), Vector2i(5, 0), Vector2i(6, 1)]
+Placeholder = NodePath("Sprite2D")
+
+[node name="CamManager" type="Node2D" parent="."]
+script = ExtResource("3_68r0y")
+
+[node name="Camera2D" type="Camera2D" parent="CamManager"]
+offset = Vector2(500, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 10
+texture = ExtResource("4_53cuy")

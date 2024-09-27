@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\GameJam\\gay-jam-hokus-pokus\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7DCF5065-F8D3-41D6-BF0E-1E6004F80A01}|test.csproj|d:\\gamejam\\gay-jam-hokus-pokus\\scripts\\foxytest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DCF5065-F8D3-41D6-BF0E-1E6004F80A01}|test.csproj|solutionrelative:scripts\\foxytest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7DCF5065-F8D3-41D6-BF0E-1E6004F80A01}|test.csproj|d:\\gamejam\\gay-jam-hokus-pokus\\scripts\\cammanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7DCF5065-F8D3-41D6-BF0E-1E6004F80A01}|test.csproj|solutionrelative:scripts\\cammanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CamManager.cs",
+              "DocumentMoniker": "D:\\GameJam\\gay-jam-hokus-pokus\\scripts\\CamManager.cs",
+              "RelativeDocumentMoniker": "scripts\\CamManager.cs",
+              "ToolTip": "D:\\GameJam\\gay-jam-hokus-pokus\\scripts\\CamManager.cs",
+              "RelativeToolTip": "scripts\\CamManager.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAowDEAAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-26T19:30:38.236Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FoxyTest.cs",
+              "DocumentMoniker": "D:\\GameJam\\gay-jam-hokus-pokus\\scripts\\FoxyTest.cs",
+              "RelativeDocumentMoniker": "scripts\\FoxyTest.cs",
+              "ToolTip": "D:\\GameJam\\gay-jam-hokus-pokus\\scripts\\FoxyTest.cs",
+              "RelativeToolTip": "scripts\\FoxyTest.cs",
+              "ViewState": "AQIAACwAAAAAAAAAAAAwwEcAAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-26T16:42:36.581Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
