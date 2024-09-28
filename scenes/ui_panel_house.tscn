@@ -1,15 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsu22k5nuxr3v"]
+[gd_scene load_steps=3 format=3 uid="uid://bva46slbcuv7x"]
 
 [ext_resource type="Script" path="res://scripts/ui_panel.gd" id="1_mehn6"]
-[ext_resource type="Texture2D" uid="uid://cty4ayberpcmn" path="res://assets/ui_sprites/ui_icons_spritesheet.png" id="1_n7ujt"]
+[ext_resource type="Texture2D" uid="uid://dij2jx42l5c65" path="res://assets/game_sprites/isometric_main_spritesheet.png" id="2_icx4d"]
 
 [node name="ui_image_panel" type="Panel"]
-offset_right = 32.0
-offset_bottom = 32.0
+custom_minimum_size = Vector2(32, 32)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1120.0
+offset_bottom = -616.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_mehn6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(16, 16)
-texture = ExtResource("1_n7ujt")
+texture = ExtResource("2_icx4d")
 region_enabled = true
-region_rect = Rect2(0, 0, 32, 32)
+region_rect = Rect2(0, 34, 32, 32)

@@ -1,5 +1,10 @@
 extends Panel
 
-func _on_gui_input(event: InputEvent) -> void:
-	if event.is_action_pressed("left_click"):
-		print("Suck my balls")
+
+func _process(_delta: float) -> void:
+	print("i work")
+
+
+
+func _gui_input(event):
+	print("I've been clicked D:")

@@ -1,12 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dvjjbga28nao6"]
+[gd_scene load_steps=2 format=3 uid="uid://mpeplo84iarw"]
 
 [ext_resource type="Texture2D" uid="uid://cty4ayberpcmn" path="res://assets/ui_sprites/ui_icons_spritesheet.png" id="1_b2qbc"]
-[ext_resource type="Script" path="res://scripts/ui_panel.gd" id="1_nxcb6"]
 
 [node name="ui_image_panel" type="Panel"]
 offset_right = 32.0
 offset_bottom = 32.0
-script = ExtResource("1_nxcb6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(16, 16)

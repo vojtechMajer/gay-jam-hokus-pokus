@@ -51,14 +51,14 @@ func fill_up(layer: TileMapLayer, start_pos: Vector2i, atlas_coord: Vector2i):
 			layer.set_cell(start_pos + Vector2i(x,y), 0, atlas_coord, 0)
 
 ## Input Handling
-func _input(event: InputEvent):
-	##placeholder_cursor
-	cursor_state()
-	## Place Tile
-	if event.is_action_pressed("place_tile"):
-		## calculate tilemap position from mouse pos
-		var tile_pos = layers[0].local_to_map(get_global_mouse_position()) 
-		place_tile(tile_pos, Vector2i(0,0))
+#func _input(event: InputEvent):
+	###placeholder_cursor
+	#cursor_state()
+	### Place Tile
+	#if event.is_action_pressed("place_tile"):
+		### calculate tilemap position from mouse pos
+		#var tile_pos = layers[0].local_to_map(get_global_mouse_position()) 
+		#place_tile(tile_pos, Vector2i(0,0))
 
 func cursor_state():
 	var state=0
@@ -68,7 +68,6 @@ func cursor_state():
 		state+=1
 	if(layers[active_layer_id].get_cell_atlas_coords(layers[active_layer_id].local_to_map(placeholder_pos)+Vector2i(0,1))!=Vector2i(-1,-1)):
 		state+=2
-	print(state)
 	placeholder_tile.texture =placehorder_cursor[state]
 
 func place_tile(tile_pos: Vector2i, atlas_coords: Vector2i):
