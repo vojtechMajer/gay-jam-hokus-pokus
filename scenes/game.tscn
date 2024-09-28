@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://smqa85mov0bs"]
+[gd_scene load_steps=3 format=3 uid="uid://smqa85mov0bs"]
 
 [ext_resource type="PackedScene" uid="uid://dj3hwqiysb0ib" path="res://scenes/play_area.tscn" id="1_wjoxl"]
-[ext_resource type="TileSet" uid="uid://dry1h5cd1y8dj" path="res://tile-sets/game_tile_Set.tres" id="2_qgglh"]
 [ext_resource type="PackedScene" uid="uid://m6ujdnw7pjsv" path="res://scenes/ingame_ui.tscn" id="2_ugbg7"]
 
 [node name="game" type="Node2D"]
@@ -12,8 +11,5 @@ ground_level_atlas_coords = Array[Vector2i]([Vector2i(5, 0), Vector2i(3, 0), Vec
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-1, 254)
-
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_set = ExtResource("2_qgglh")
 
 [node name="UI" parent="." instance=ExtResource("2_ugbg7")]

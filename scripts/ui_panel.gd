@@ -1,10 +1,10 @@
 extends Panel
 
 
-func _process(_delta: float) -> void:
-	print("i work")
-
+signal chose(tileset_posision)
+@export var cords: Vector2i = Vector2i(-1,-1)
 
 
 func _gui_input(event):
-	print("I've been clicked D:")
+	if event.is_action_pressed("right_click"):
+		emit_signal("chose",cords)

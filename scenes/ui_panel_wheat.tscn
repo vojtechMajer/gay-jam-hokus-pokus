@@ -1,15 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://mpeplo84iarw"]
+[gd_scene load_steps=3 format=3 uid="uid://mpeplo84iarw"]
 
-[ext_resource type="Texture2D" uid="uid://cty4ayberpcmn" path="res://assets/ui_sprites/ui_icons_spritesheet.png" id="1_b2qbc"]
+[ext_resource type="Texture2D" uid="uid://dij2jx42l5c65" path="res://assets/game_sprites/isometric_main_spritesheet.png" id="1_t1k26"]
+[ext_resource type="Script" path="res://scripts/ui_panel.gd" id="1_wwblh"]
 
 [node name="ui_image_panel" type="Panel"]
+custom_minimum_size = Vector2(32, 32)
 offset_right = 32.0
 offset_bottom = 32.0
+script = ExtResource("1_wwblh")
+cords = Vector2i(1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(16, 16)
-texture = ExtResource("1_b2qbc")
+texture = ExtResource("1_t1k26")
 region_enabled = true
-region_rect = Rect2(32, 0, 32, 32)
+region_rect = Rect2(32, 32, 32, 32)
 
 [connection signal="gui_input" from="." to="." method="_on_gui_input"]

@@ -9,6 +9,7 @@ var placehorder_cursor:= [load("res://sprites/placeholder-tile.png"),load("res:/
 var active_layer_id
 var layers: Array[TileMapLayer]
 @onready var placeholder_tile: Sprite2D = $PlaceholderTile
+var curent_tile: Vector2i
 
 
 
@@ -16,6 +17,9 @@ func _ready() -> void:
 	## Set top layer as initial layer
 	active_layer_id = layer_count-1
 	spawn_layers()
+	var ui = self.get_node("../UI/Panel/FlowContainer").get_children()
+	for i in ui:
+		i.connect("chose",changeTile)
 
 func _process(_delta: float) -> void:
 	## Scroll Down
@@ -23,14 +27,11 @@ func _process(_delta: float) -> void:
 		if active_layer_id != 1:
 			layers[active_layer_id].modulate.a8 = 50
 			active_layer_id -= 1
-
 	## Scroll Up
 	if (Input.is_action_just_released("scroll_up")):
 		if (active_layer_id != layer_count-1):
 			layers[active_layer_id+1].modulate.a8 = 255
 			active_layer_id += 1
-
-	## Move Placeholder Tile
 
 func spawn_layers():
 	for i in layer_count:
@@ -50,15 +51,17 @@ func fill_up(layer: TileMapLayer, start_pos: Vector2i, atlas_coord: Vector2i):
 		for y in grid_height:
 			layer.set_cell(start_pos + Vector2i(x,y), 0, atlas_coord, 0)
 
+func changeTile(cord):
+	curent_tile =cord
 ## Input Handling
-#func _input(event: InputEvent):
-	###placeholder_cursor
-	#cursor_state()
-	### Place Tile
-	#if event.is_action_pressed("place_tile"):
-		### calculate tilemap position from mouse pos
-		#var tile_pos = layers[0].local_to_map(get_global_mouse_position()) 
-		#place_tile(tile_pos, Vector2i(0,0))
+func _input(event: InputEvent):
+	##placeholder_cursor
+	cursor_state()
+	## Place Tile
+	if event.is_action_pressed("place_tile"):
+		## calculate tilemap position from mouse pos
+		var tile_pos = layers[0].local_to_map(get_global_mouse_position()) 
+		place_tile(tile_pos, curent_tile)
 
 func cursor_state():
 	var state=0

@@ -13,6 +13,7 @@ offset_bottom = -616.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mehn6")
+cords = Vector2i(0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(16, 16)
