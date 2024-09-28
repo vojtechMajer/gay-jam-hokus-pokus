@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsu22k5nuxr3v"]
+
+[ext_resource type="Script" path="res://scripts/ui_panel.gd" id="1_mehn6"]
+[ext_resource type="Texture2D" uid="uid://cty4ayberpcmn" path="res://assets/ui_sprites/ui_icons_spritesheet.png" id="1_n7ujt"]
+
+[node name="ui_image_panel" type="Panel"]
+offset_right = 32.0
+offset_bottom = 32.0
+script = ExtResource("1_mehn6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(16, 16)
+texture = ExtResource("1_n7ujt")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)

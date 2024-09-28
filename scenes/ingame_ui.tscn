@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://m6ujdnw7pjsv"]
+[gd_scene load_steps=3 format=3 uid="uid://m6ujdnw7pjsv"]
 
-[ext_resource type="Texture2D" uid="uid://cplogi4yh8dbm" path="res://assets/ui_bottom_panel.png" id="1_1qbww"]
-[ext_resource type="Theme" uid="uid://crtgb2whnjsci" path="res://assets/themes/button_house.tres" id="2_bf67y"]
-[ext_resource type="Theme" uid="uid://dhsl3wvfc2ux" path="res://assets/themes/button_farm.tres" id="3_87pth"]
-[ext_resource type="Theme" uid="uid://0ehqjak7ypcp" path="res://assets/themes/button_towhall.tres" id="4_u0cyl"]
+[ext_resource type="PackedScene" uid="uid://dsu22k5nuxr3v" path="res://scenes/ui_panel_house.tscn" id="2_dkinc"]
+[ext_resource type="PackedScene" uid="uid://dvjjbga28nao6" path="res://scenes/ui_panel_wheat.tscn" id="3_85rpi"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -21,7 +19,6 @@ anchor_bottom = 1.0
 offset_top = -122.0
 offset_right = 218.0
 grow_vertical = 0
-texture = ExtResource("1_1qbww")
 region_rect = Rect2(7, 8, 387, 134)
 
 [node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
@@ -42,22 +39,16 @@ layout_mode = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-theme_override_constants/separation = 12
+theme_override_constants/separation = 17
 
 [node name="Spacing" type="Control" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(32, 32)
+[node name="ui_image_panel" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("2_dkinc")]
 layout_mode = 2
-theme = ExtResource("2_bf67y")
 
-[node name="Button2" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(32, 32)
+[node name="Spacing2" type="Control" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_87pth")
 
-[node name="Button3" type="Button" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(32, 32)
+[node name="ui_image_panel2" parent="NinePatchRect/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_85rpi")]
 layout_mode = 2
-theme = ExtResource("4_u0cyl")
