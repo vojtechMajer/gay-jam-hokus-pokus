@@ -1,23 +1,35 @@
 using System;
 using Godot;
 
-public partial class WaterSpell : Node2D, ISpell
+public partial class FireWind : SpellBase
 {
-    public void CastSpell(Node2D parent)
+    public override void CastSpell(Node2D parent)
     {
-        throw new NotImplementedException();
+        spellScene = (Node2D)GD.Load<PackedScene>("res://GAMEJAM/particles/fire_wind.tscn").Instantiate();
+        parent.AddChild(spellScene);
     }
 
-    public string getSpellName()
+    public override float GetCastTime()
+    {
+        return 4;
+    }
+
+    public override string getSpellName()
     {
         return "blubblub";
     }
+
+    public override void _Process(double delta)
+    {
+        Rotation = Helper.FromNodeToMouse(this).Angle();
+        GD.Print(Helper.FromNodeToMouse(this).Angle());
+    }
 }
 
-public partial class FireSpell : Node2D, ISpell
+public partial class FireSpell : SpellBase
 {
     int count = 0;
-    public void CastSpell(Node2D parent)
+    public override void CastSpell(Node2D parent)
     {
         Projectile projectile = new Projectile(){
             Name = count++.ToString(),
@@ -31,7 +43,12 @@ public partial class FireSpell : Node2D, ISpell
         
     }
 
-    public string getSpellName()
+    public override float GetCastTime()
+    {
+        return 0.2f;
+    }
+
+    public override string getSpellName()
     {
         return "BOMBA";
     }
