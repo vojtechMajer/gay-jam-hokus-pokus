@@ -1,26 +1,49 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6xhgrridchdk"]
-
-[sub_resource type="Gradient" id="Gradient_hop06"]
-colors = PackedColorArray(0.35239, 0.552839, 1, 1, 1, 1, 1, 1)
+[gd_scene load_steps=6 format=3 uid="uid://b6xhgrridchdk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8m22f"]
 size = Vector2(500, 10)
 
-[node name="fire_lightning" type="Area2D"]
+[sub_resource type="Gradient" id="Gradient_uy5o4"]
+offsets = PackedFloat32Array(0, 0.321839, 1)
+colors = PackedColorArray(0.203922, 0.788235, 0.905882, 1, 0.666013, 0.911156, 0.960514, 1, 1, 1, 1, 1)
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-amount = 1000
-lifetime = 0.5
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fc3rb"]
+gradient = SubResource("Gradient_uy5o4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ejc1b"]
+lifetime_randomness = 0.35
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(250, 10, 1)
 emission_shape = 3
-emission_rect_extents = Vector2(4, 4)
+emission_box_extents = Vector3(1, 1, 1)
 spread = 0.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 1000.0
-initial_velocity_max = 1000.0
-scale_amount_min = 2.0
-scale_amount_max = 4.0
-color_ramp = SubResource("Gradient_hop06")
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+color_ramp = SubResource("GradientTexture1D_fc3rb")
+turbulence_enabled = true
+turbulence_noise_strength = 10.55
+turbulence_noise_scale = 7.775
+
+[sub_resource type="Environment" id="Environment_5uk3h"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 6.55
+glow_strength = 1.48
+glow_blend_mode = 0
+glow_hdr_scale = 0.8
+
+[node name="fire_lightning" type="Area2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(249.5, 0)
 shape = SubResource("RectangleShape2D_8m22f")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(242, 1)
+amount = 10000
+process_material = SubResource("ParticleProcessMaterial_ejc1b")
+lifetime = 2.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5uk3h")
