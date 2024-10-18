@@ -1,4 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlxc0jh6651of"]
+[gd_scene load_steps=8 format=3 uid="uid://dlxc0jh6651of"]
+
+[ext_resource type="Script" path="res://GAMEJAM/particles/fire_wind.gd" id="1_gjjuk"]
 
 [sub_resource type="Gradient" id="Gradient_gcjpq"]
 offsets = PackedFloat32Array(0, 0.574713, 1)
@@ -17,8 +19,8 @@ curve = SubResource("Curve_ydd0b")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nfxnk"]
 particle_flag_disable_z = true
 spread = 35.0
-initial_velocity_min = 2000.0
-initial_velocity_max = 2000.0
+initial_velocity_min = 200.0
+initial_velocity_max = 400.0
 gravity = Vector3(0, 0, 0)
 scale_min = 4.0
 scale_max = 7.0
@@ -36,6 +38,7 @@ glow_blend_mode = 0
 glow_hdr_scale = 0.8
 
 [node name="Fire_wind" type="Area2D"]
+script = ExtResource("1_gjjuk")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, 0, 250, -150, 250, 150)
@@ -43,7 +46,7 @@ polygon = PackedVector2Array(0, 0, 250, -150, 250, 150)
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 amount = 500
 process_material = SubResource("ParticleProcessMaterial_nfxnk")
-lifetime = 0.15
+local_coords = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_m7lxw")

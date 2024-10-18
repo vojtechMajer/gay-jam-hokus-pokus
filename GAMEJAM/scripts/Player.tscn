@@ -1,21 +1,85 @@
-[gd_scene load_steps=5 format=3 uid="uid://cs2ufa018m4tr"]
+[gd_scene load_steps=9 format=3 uid="uid://cs2ufa018m4tr"]
 
 [ext_resource type="Script" path="res://GAMEJAM/scripts/Player.cs" id="1_lt7v7"]
-[ext_resource type="Texture2D" uid="uid://dwaktdmhu3fvp" path="res://icon.svg" id="2_nssc3"]
+[ext_resource type="Texture2D" uid="uid://dhg2ro1cnpmok" path="res://GAMEJAM/sprites/mc_character_spritesheet_final.png" id="2_n7h81"]
 [ext_resource type="Script" path="res://GAMEJAM/scripts/CastingManager.cs" id="3_6da6k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_812ob"]
 radius = 63.5059
+
+[sub_resource type="Animation" id="Animation_stmdi"]
+resource_name = "walk"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tbiag"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rxein"]
+resource_name = "cast"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.166667, 0.3, 0.4, 0.5, 0.566667, 0.666667, 0.766667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(1, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(5, 2), Vector2i(3, 2), Vector2i(2, 2), Vector2i(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_40sya"]
+_data = {
+"RESET": SubResource("Animation_tbiag"),
+"cast": SubResource("Animation_rxein"),
+"walk": SubResource("Animation_stmdi")
+}
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("CastingManager")]
 script = ExtResource("1_lt7v7")
 CastingManager = NodePath("CastingManager")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_nssc3")
+position = Vector2(-1, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("2_n7h81")
+hframes = 6
+vframes = 4
+frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_812ob")
 
 [node name="CastingManager" type="Node2D" parent="."]
 script = ExtResource("3_6da6k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_40sya")
+}

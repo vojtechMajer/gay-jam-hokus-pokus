@@ -14,7 +14,10 @@ public partial class Player : CharacterBody2D
 	public float MaxAcc { get; set; } = 2000;
 	[Export]
 	public float MaxDcc { get; set; } = 3000;
+	private AnimationPlayer _animationPlayer;
+	private Sprite2D _sprite;
 
+	
 	public Vector2 Pos { get; set; }
 	public int HP { get; set; }
 	Vector2 acceleration = Vector2.Zero;
@@ -34,7 +37,8 @@ public partial class Player : CharacterBody2D
 		_Inputs.Add("Move_R", new Vector2(1, 0));
 		_Inputs.Add("Move_U", new Vector2(0, -1));
 		_Inputs.Add("Move_D", new Vector2(0, 1));
-
+		_animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+		 _sprite = GetNode<Sprite2D>("Sprite2D");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -67,6 +71,10 @@ public partial class Player : CharacterBody2D
 
 		acceleration = new Vector2(MaxAcc * (x_right ^ x_left?(x_right?1:-1):0), MaxAcc * (y_up ^ y_down?(y_up?-1:1):0));
 
+		if(vel_x>0)
+			_sprite.FlipH =false;
+		if(vel_x<0)
+			_sprite.FlipH =true;
 		if(x_right ^ x_left)
 		{
 			if(vel_x <= MaxSpeed && vel_x >= -MaxSpeed)
@@ -95,7 +103,21 @@ public partial class Player : CharacterBody2D
 				vel_y = 0;
 		}
 		Velocity = new Vector2((float)vel_x, (float)vel_y);
-
+		if(vel_y+vel_x!=0)
+		{
+			
+			if(!_animationPlayer.IsPlaying())
+			{
+				_animationPlayer.Play("walk");
+			}
+			 
+		}else
+		{
+			if(!(_animationPlayer.CurrentAnimation=="cast"))
+			{
+				_animationPlayer.Stop();
+			}
+		}
 		MoveAndSlide();
 		for (int i = 0; i < GetSlideCollisionCount(); i++)
 		{
