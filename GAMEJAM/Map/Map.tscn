@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://jppxrx4m4wf1"]
+
+[node name="Map" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="TileMapLayer"]
