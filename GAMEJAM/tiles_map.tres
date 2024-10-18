@@ -1,0 +1,14 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://ck703e02qwxgr"]
+
+[ext_resource type="Texture2D" uid="uid://sh8dtvd1e6jj" path="res://GAMEJAM/Gravel_29_JE5_BE4.webp" id="2_o6edg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f28e2"]
+texture = ExtResource("2_o6edg")
+texture_region_size = Vector2i(160, 160)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-80, -80, 80, -80, 80, 80, -80, 80)
+
+[resource]
+tile_size = Vector2i(160, 160)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_f28e2")
