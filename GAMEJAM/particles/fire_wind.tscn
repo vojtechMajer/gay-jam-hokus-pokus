@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlxc0jh6651of"]
+
+[sub_resource type="Curve" id="Curve_gbr76"]
+_data = [Vector2(0.0168539, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.428571), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_hop06"]
+colors = PackedColorArray(0.892616, 0.320181, 0, 1, 1, 1, 1, 1)
+
+[node name="Fire_wind" type="Area2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 1000
+emission_shape = 1
+emission_sphere_radius = 20.0
+spread = 35.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 242.42
+initial_velocity_max = 343.43
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_gbr76")
+color = Color(1, 1, 0.384314, 1)
+color_ramp = SubResource("Gradient_hop06")
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 250, -150, 250, 150)

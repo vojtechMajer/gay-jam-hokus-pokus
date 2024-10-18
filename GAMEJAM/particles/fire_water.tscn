@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0i3coxj53peo"]
+
+[sub_resource type="Curve" id="Curve_gbr76"]
+_data = [Vector2(0.0168539, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_hop06"]
+colors = PackedColorArray(0.821626, 0.376254, 0.367216, 1, 1, 1, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xpdmu"]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pwlyf"]
+radius = 100.0
+
+[node name="Fireball" type="Area2D"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 1000
+lifetime = 0.5
+emission_shape = 1
+emission_sphere_radius = 20.0
+spread = 0.0
+gravity = Vector2(0, 0)
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_gbr76")
+color = Color(0, 0.743497, 0.813634, 1)
+color_ramp = SubResource("Gradient_hop06")
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 500
+one_shot = true
+emission_shape = 1
+emission_sphere_radius = 20.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 251.0
+initial_velocity_max = 270.04
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_gbr76")
+color_ramp = SubResource("Gradient_hop06")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_xpdmu")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pwlyf")

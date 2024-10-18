@@ -1,0 +1,84 @@
+[gd_scene load_steps=10 format=3 uid="uid://d18dix65e4o73"]
+
+[ext_resource type="Texture2D" uid="uid://xg1el5ojlwxg" path="res://GAMEJAM/UI/UI_Textures/heatlh-border.png" id="1_iscso"]
+[ext_resource type="Texture2D" uid="uid://b7rwqvskk2pmx" path="res://GAMEJAM/UI/UI_Textures/health-fill.png" id="2_5irwf"]
+[ext_resource type="Script" path="res://GAMEJAM/UI/health_bar.gd" id="3_7vbss"]
+[ext_resource type="Texture2D" uid="uid://edhobd2h3jjg" path="res://GAMEJAM/UI/UI_Textures/rune-table-empty.png" id="4_f56ry"]
+[ext_resource type="Texture2D" uid="uid://dkds67s6sbpve" path="res://GAMEJAM/UI/UI_Textures/rune-fire.png" id="5_qfa6m"]
+[ext_resource type="Texture2D" uid="uid://c6gggxvwej6nx" path="res://GAMEJAM/UI/UI_Textures/rune-water.png" id="5_xcb6j"]
+[ext_resource type="Texture2D" uid="uid://bsepeaiq4strf" path="res://GAMEJAM/UI/UI_Textures/rune-wind.png" id="6_fbtg8"]
+[ext_resource type="Script" path="res://GAMEJAM/UI/highlight_water.gd" id="6_xtoxs"]
+[ext_resource type="Texture2D" uid="uid://bgp6hw2fghfbe" path="res://GAMEJAM/UI/UI_Textures/rune-lighting.png" id="7_cnpt6"]
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Health-bar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 885.0
+offset_top = 13.0
+offset_right = 1013.0
+offset_bottom = 61.0
+scale = Vector2(2, 2)
+texture_under = ExtResource("1_iscso")
+texture_progress = ExtResource("2_5irwf")
+texture_progress_offset = Vector2(17, 16)
+script = ExtResource("3_7vbss")
+
+[node name="Rune-table-empty" type="Sprite2D" parent="."]
+position = Vector2(951, 442)
+scale = Vector2(4, 4)
+texture = ExtResource("4_f56ry")
+centered = false
+
+[node name="Highlight-water" type="TextureProgressBar" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+offset_left = 1015.0
+offset_top = 442.0
+offset_right = 1031.0
+offset_bottom = 458.0
+scale = Vector2(4, 4)
+fill_mode = 4
+texture_progress = ExtResource("5_xcb6j")
+script = ExtResource("6_xtoxs")
+
+[node name="Highlight-fire" type="TextureProgressBar" parent="."]
+custom_minimum_size = Vector2(16, 16)
+offset_left = 1079.0
+offset_top = 506.0
+offset_right = 1095.0
+offset_bottom = 522.0
+scale = Vector2(4, 4)
+fill_mode = 4
+texture_progress = ExtResource("5_qfa6m")
+
+[node name="Highlight-wind" type="TextureProgressBar" parent="."]
+custom_minimum_size = Vector2(16, 16)
+offset_left = 952.0
+offset_top = 506.0
+offset_right = 968.0
+offset_bottom = 522.0
+scale = Vector2(4, 4)
+fill_mode = 4
+texture_progress = ExtResource("6_fbtg8")
+
+[node name="Highlight-lighting" type="TextureProgressBar" parent="."]
+custom_minimum_size = Vector2(16, 16)
+offset_left = 1015.0
+offset_top = 570.0
+offset_right = 1031.0
+offset_bottom = 586.0
+scale = Vector2(4, 4)
+fill_mode = 4
+texture_progress = ExtResource("7_cnpt6")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="mouse_exited" from="Health-bar" to="Health-bar" method="_on_mouse_exited"]
