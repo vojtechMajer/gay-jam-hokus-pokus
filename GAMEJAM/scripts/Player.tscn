@@ -1,12 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cs2ufa018m4tr"]
+[gd_scene load_steps=5 format=3 uid="uid://cs2ufa018m4tr"]
 
 [ext_resource type="Script" path="res://GAMEJAM/scripts/Player.cs" id="1_lt7v7"]
+[ext_resource type="Texture2D" uid="uid://dwaktdmhu3fvp" path="res://icon.svg" id="2_nssc3"]
+[ext_resource type="Script" path="res://GAMEJAM/scripts/CastingManager.cs" id="3_6da6k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_812ob"]
-radius = 34.2345
+radius = 63.5059
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("CastingManager")]
 script = ExtResource("1_lt7v7")
+CastingManager = NodePath("CastingManager")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_nssc3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_812ob")
+
+[node name="CastingManager" type="Node2D" parent="."]
+script = ExtResource("3_6da6k")
