@@ -14,4 +14,5 @@ func _process(delta: float) -> void:
 
 func createPositionOfRuins():
 	var kvadranty = [0,0,0,0]
-	var i = randi_range(0,3)
+	
+	var random = randi_range(0,3)
