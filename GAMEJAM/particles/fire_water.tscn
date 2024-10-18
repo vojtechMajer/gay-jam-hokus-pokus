@@ -1,11 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0i3coxj53peo"]
-
-[sub_resource type="Curve" id="Curve_gbr76"]
-_data = [Vector2(0.0168539, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_hop06"]
-colors = PackedColorArray(0.821626, 0.376254, 0.367216, 1, 1, 1, 1, 1)
+[gd_scene load_steps=9 format=3 uid="uid://d0i3coxj53peo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xpdmu"]
 radius = 15.0
@@ -13,38 +6,56 @@ radius = 15.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_pwlyf"]
 radius = 100.0
 
-[node name="Fireball" type="Area2D"]
+[sub_resource type="Gradient" id="Gradient_s4k3k"]
+offsets = PackedFloat32Array(0, 0.454023, 1)
+colors = PackedColorArray(0.567623, 0.61382, 0.630365, 1, 0.831025, 0.849079, 0.855545, 1, 1, 1, 1, 1)
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-amount = 1000
-lifetime = 0.5
-emission_shape = 1
-emission_sphere_radius = 20.0
-spread = 0.0
-gravity = Vector2(0, 0)
-scale_amount_min = 2.0
-scale_amount_max = 4.0
-scale_amount_curve = SubResource("Curve_gbr76")
-color = Color(0, 0.743497, 0.813634, 1)
-color_ramp = SubResource("Gradient_hop06")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_a7d3d"]
+gradient = SubResource("Gradient_s4k3k")
 
-[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
-emitting = false
-amount = 500
-one_shot = true
+[sub_resource type="Curve" id="Curve_7mbry"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.098901), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ddhu6"]
+curve = SubResource("Curve_7mbry")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_aexu7"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(20, 20, 1)
 emission_shape = 1
-emission_sphere_radius = 20.0
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+spread = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 4.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_ddhu6")
+color_ramp = SubResource("GradientTexture1D_a7d3d")
+turbulence_enabled = true
+turbulence_noise_scale = 3.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bhnm7"]
+particle_flag_disable_z = true
 spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 251.0
-initial_velocity_max = 270.04
-scale_amount_min = 2.0
-scale_amount_max = 4.0
-scale_amount_curve = SubResource("Curve_gbr76")
-color_ramp = SubResource("Gradient_hop06")
+initial_velocity_min = 50.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 0, 0)
+
+[node name="Fireball" type="Area2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xpdmu")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_pwlyf")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_aexu7")
+lifetime = 0.5
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 150
+process_material = SubResource("ParticleProcessMaterial_bhnm7")
+explosiveness = 1.0

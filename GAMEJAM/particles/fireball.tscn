@@ -1,29 +1,54 @@
-[gd_scene load_steps=4 format=3 uid="uid://ce5f6sksuu8cs"]
-
-[sub_resource type="Curve" id="Curve_gbr76"]
-_data = [Vector2(0.0168539, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_hop06"]
-colors = PackedColorArray(0.892616, 0.320181, 0, 1, 1, 1, 1, 1)
+[gd_scene load_steps=8 format=3 uid="uid://ce5f6sksuu8cs"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pwlyf"]
 radius = 13.0
 
-[node name="Fireball" type="Area2D"]
+[sub_resource type="Gradient" id="Gradient_6nt6e"]
+offsets = PackedFloat32Array(0, 0.212644, 1)
+colors = PackedColorArray(0.952941, 0.807843, 0, 1, 0.977012, 0.396642, 0.00200586, 1, 1, 0.00392157, 0.00392157, 1)
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-amount = 1000
-lifetime = 0.5
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e8his"]
+gradient = SubResource("Gradient_6nt6e")
+
+[sub_resource type="Curve" id="Curve_r6wua"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.098901), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_6fscn"]
+curve = SubResource("Curve_r6wua")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_uh8c4"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(15, 15, 1)
 emission_shape = 1
-emission_sphere_radius = 20.0
-spread = 0.0
-gravity = Vector2(0, 0)
-scale_amount_min = 2.0
-scale_amount_max = 4.0
-scale_amount_curve = SubResource("Curve_gbr76")
-color = Color(1, 1, 0.384314, 1)
-color_ramp = SubResource("Gradient_hop06")
+emission_sphere_radius = 1.0
+direction = Vector3(0, -1, 0)
+spread = 10.0
+gravity = Vector3(0, 0, 0)
+scale_min = 4.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_6fscn")
+color_ramp = SubResource("GradientTexture1D_e8his")
+turbulence_enabled = true
+turbulence_noise_scale = 3.0
+
+[sub_resource type="Environment" id="Environment_epldw"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 5.0
+glow_strength = 1.15
+glow_blend_mode = 0
+glow_hdr_scale = 0.8
+
+[node name="Fireball" type="Area2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_pwlyf")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_uh8c4")
+lifetime = 0.5
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_epldw")
