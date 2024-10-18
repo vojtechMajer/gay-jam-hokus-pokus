@@ -4,7 +4,7 @@
 _data = [Vector2(0.0168539, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.428571), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="Fire_wind" type="Area2D"]
+[node name="wind" type="Area2D"]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 amount = 1000
