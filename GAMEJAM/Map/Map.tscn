@@ -9,6 +9,7 @@
 [node name="Mainlevel" parent="." instance=ExtResource("1_hbmsb")]
 
 [node name="Player" parent="." instance=ExtResource("1_o75u4")]
+script = null
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
