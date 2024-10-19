@@ -6,6 +6,7 @@ var speed = 20
 var damage = 2 
 var player
 var dashing:bool = false;
+var hp = 100
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var smash_area: Area2D = $Area2D/Smash_area
@@ -20,6 +21,10 @@ func _process(delta: float) -> void:
 		animated_sprite_2d.set_flip_h(true)
 	else:
 		animated_sprite_2d.set_flip_h(false)
+		
+	if (hp <= 0):
+			queue_free()
+
 
 
 func _physics_process(delta):
@@ -42,3 +47,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 				player_enter_attack_zone.emit(damage)
 	animated_sprite_2d.play("move")
 	
+
+
+func _on_area_2d_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
+	hp -= 5
