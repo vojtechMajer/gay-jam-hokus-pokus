@@ -1,10 +1,12 @@
-[gd_scene load_steps=24 format=3 uid="uid://b2emrciheqyvl"]
+[gd_scene load_steps=25 format=3 uid="uid://b2emrciheqyvl"]
 
 [ext_resource type="Script" path="res://GAMEJAM/scripts/enemies/imp.gd" id="1_6284m"]
 [ext_resource type="Texture2D" uid="uid://cnt4vswafx01k" path="res://GAMEJAM/sprites/enemies/fire-imp-attack-Sheet.png" id="2_3xwpa"]
 [ext_resource type="Texture2D" uid="uid://bacjefgxyrfh5" path="res://GAMEJAM/sprites/enemies/fire-imp-idle-Sheet.png" id="3_6pu5e"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ou2i6"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xncrx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v27mq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6meib"]
 atlas = ExtResource("2_3xwpa")
@@ -147,21 +149,29 @@ animations = [{
 }],
 "loop": false,
 "name": &"roll",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="Imp" type="CharacterBody2D"]
+scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_6284m")
 speed = 100
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_xncrx")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_ou2i6")
+shape = SubResource("CapsuleShape2D_v27mq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_rm0ce")
 animation = &"idle"
+autoplay = "idle"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 3.0
@@ -171,6 +181,8 @@ autostart = true
 wait_time = 2.0
 one_shot = true
 
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

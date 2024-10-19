@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=4 uid="uid://jppxrx4m4wf1"]
+[gd_scene load_steps=7 format=4 uid="uid://jppxrx4m4wf1"]
 
+[ext_resource type="Script" path="res://GAMEJAM/Map/map.gd" id="1_al5dc"]
 [ext_resource type="PackedScene" uid="uid://cs2ufa018m4tr" path="res://GAMEJAM/scripts/Player.tscn" id="1_o75u4"]
 [ext_resource type="TileSet" uid="uid://ck703e02qwxgr" path="res://GAMEJAM/tiles_map.tres" id="1_vwc7u"]
 [ext_resource type="PackedScene" uid="uid://chd6qum8hjl2t" path="res://GAMEJAM/scripts/enemies/deamon.tscn" id="3_qbwem"]
 [ext_resource type="PackedScene" uid="uid://b2emrciheqyvl" path="res://GAMEJAM/scripts/enemies/imp.tscn" id="4_lhja4"]
+[ext_resource type="PackedScene" uid="uid://4a1ek1wvcycy" path="res://GAMEJAM/scripts/enemies/golem.tscn" id="5_nx7g6"]
 
 [node name="Map" type="Node2D"]
+script = ExtResource("1_al5dc")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD8/wMAAQAAAAAAAAD9/wMAAQAAAAAAAAD+/wMAAQAAAAAAAAAAAAMAAQAAAAAAAAABAAMAAQAAAAAAAAACAAMAAQAAAAAAAAADAAMAAQAAAAAAAAAEAAMAAQAAAAAAAAAFAAMAAQAAAAAAAAAGAAMAAQAAAAAAAAAGAAEAAQAAAAAAAAAGAAAAAQAAAAAAAAAGAP//AQAAAAAAAAAGAP7/AQAAAAAAAAAGAP3/AQAAAAAAAAD//wMAAQAAAAAAAAAGAAIAAQAAAAAAAAA=")
@@ -21,11 +24,10 @@ MaxDcc = 4000.0
 position = Vector2(225, 1)
 scale = Vector2(2, 2)
 
-[node name="Deamon2" parent="." instance=ExtResource("3_qbwem")]
-position = Vector2(310, 2)
-scale = Vector2(2, 2)
-
 [node name="Imp" parent="." instance=ExtResource("4_lhja4")]
 position = Vector2(-286, -281)
 speed = 550
 dash_time = 1
+
+[node name="Golem" parent="." instance=ExtResource("5_nx7g6")]
+scale = Vector2(-2, 2)
