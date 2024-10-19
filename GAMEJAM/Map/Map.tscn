@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dmktvjgfa4l7c" path="res://GAMEJAM/Levels/Level.tscn" id="1_hbmsb"]
 [ext_resource type="Script" path="res://GAMEJAM/Map/map.gd" id="1_i25lf"]
-[ext_resource type="PackedScene" uid="uid://dgg2ymdq4tx8d" path="res://GAMEJAM/scripts/enemies/golem.tscn" id="1_iro7x"]
+[ext_resource type="PackedScene" path="res://GAMEJAM/scripts/enemies/golem.tscn" id="1_iro7x"]
 [ext_resource type="PackedScene" uid="uid://cs2ufa018m4tr" path="res://GAMEJAM/scripts/Player.tscn" id="1_o75u4"]
 [ext_resource type="PackedScene" uid="uid://chd6qum8hjl2t" path="res://GAMEJAM/scripts/enemies/deamon.tscn" id="3_qbwem"]
 
@@ -24,3 +24,4 @@ position = Vector2(845, 365)
 scale = Vector2(2, 2)
 
 [node name="Golem" parent="." instance=ExtResource("1_iro7x")]
+position = Vector2(128.625, 120.655)

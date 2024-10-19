@@ -88,12 +88,21 @@ libraries = {
 [node name="Node" type="Node2D" parent="."]
 script = ExtResource("4_mgifc")
 
-[node name="TimerFaster" type="Timer" parent="."]
+[node name="TimerFire" type="Timer" parent="."]
 wait_time = 4.0
 one_shot = true
 
-[node name="TimerSlower" type="Timer" parent="."]
+[node name="TimerWater" type="Timer" parent="."]
 wait_time = 2.0
+one_shot = true
 
-[connection signal="timeout" from="TimerFaster" to="Node" method="_on_timer_faster_timeout"]
-[connection signal="timeout" from="TimerSlower" to="Node" method="_on_timer_slower_timeout"]
+[node name="TimerWind" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimerLightning" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="TimerFire" to="Node" method="_on_timer_faster_timeout"]
+[connection signal="timeout" from="TimerWater" to="Node" method="_on_timer_slower_timeout"]
+[connection signal="timeout" from="TimerWind" to="Node" method="_on_timer_wind_timeout"]
+[connection signal="timeout" from="TimerLightning" to="Node" method="_on_timer_lightning_timeout"]
