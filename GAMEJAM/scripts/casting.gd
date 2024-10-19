@@ -1,35 +1,59 @@
 extends Node2D
-var cooldownFaster : bool = false
-var cooldownSlower : bool = false
+var water : bool = false
+var fire : bool = false
+var wind : bool = false
+var lightning : bool = false
+
 var Combo=[null,null]
 @onready
 var map= get_tree().get_root().get_node("Map")
-var fire =load("res://GAMEJAM/particles/fireball.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if ((Input.is_action_just_pressed("fire"))&&(Global.unlocked[0]==1)):
+	if ((Input.is_action_just_pressed("fire"))&&(Global.unlocked[0]==1)&&!fire):
 		Combo[checkOpen()] = 1
-	if ((Input.is_action_just_pressed("water"))&&(Global.unlocked[1]==1)):
+	if ((Input.is_action_just_pressed("water"))&&(Global.unlocked[1]==1)&&!water):
 		Combo[checkOpen()] = 2
-	if ((Input.is_action_just_pressed("wind"))&&(Global.unlocked[2]==1)):
+	if ((Input.is_action_just_pressed("wind"))&&(Global.unlocked[2]==1)&&!wind):
 		Combo[checkOpen()] = 3
-	if ((Input.is_action_just_pressed("lightning"))&&(Global.unlocked[3]==1)):
+	if ((Input.is_action_just_pressed("lightning"))&&(Global.unlocked[3]==1)&&!lightning):
 		Combo[checkOpen()] = 4
+	print(((Combo[0] == 1)))
 	if ((Combo[0] == 1) && (Combo[1] == 1)):
 		CastSpell("fireball",false)
-		cooldownFaster=true
-		$"../TimerFaster".start()
+		fire=true
+		$"../TimerFire".start(5)
+		Global.cd=5
 	if ((Combo[0] == 1) && (Combo[1] == 2)):
 		CastSpell("fire_water",false)
+		fire=true
+		water=true
+		$"../TimerWater".start(5)
+		Global.cd=5
+		$"../TimerFire".start(5)
+		Global.cd=5
 	if ((Combo[0] == 1) && (Combo[1] == 3)):
 		CastSpell("fire_wind",true)
+		fire=true
+		wind=true
+		$"../TimerFire".start(5)
+		Global.cd=5
+		$"../TimerWind".start(5)
+		Global.cd=5
 	if ((Combo[0] == 1) && (Combo[1] == 4)):
 		CastSpell("fire_lightning",false)
+		fire=true
+		lightning=true
+		$"../TimerFire".start(5)
+		Global.cd=5
+		$"../TimerLightning".start(5)
+		Global.cd=5
 	if ((Combo[0] == 2) && (Combo[1] == 2)):
 		CastSpell("water",true)
+		$"../TimerWater".start(5)
+		Global.cd=5
 	if ((Combo[0] == 2) && (Combo[1] == 3)):
 		Combo[0]=null
 		Combo[1]=null
@@ -38,6 +62,9 @@ func _process(delta: float) -> void:
 		Combo[1]=null
 	if ((Combo[0] == 3) && (Combo[1] == 3)):
 		CastSpell("wind",true)
+		wind = true
+		$"../TimerWind".start(5)
+		Global.cd=5
 	if ((Combo[0] == 3) && (Combo[1] == 4)):
 		Combo[0]=null
 		Combo[1]=null
@@ -68,8 +95,16 @@ func CastSpell(spellname,docked):
 
 
 func _on_timer_faster_timeout() -> void:
-	cooldownFaster = false
+	fire =false
 
 
 func _on_timer_slower_timeout() -> void:
-	pass # Replace with function body.
+	water=false
+
+
+func _on_timer_wind_timeout() -> void:
+	wind =false
+
+
+func _on_timer_lightning_timeout() -> void:
+	lightning=false

@@ -1,15 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://jppxrx4m4wf1"]
+[gd_scene load_steps=7 format=3 uid="uid://jppxrx4m4wf1"]
 
 [ext_resource type="PackedScene" uid="uid://dmktvjgfa4l7c" path="res://GAMEJAM/Levels/Level.tscn" id="1_hbmsb"]
 [ext_resource type="Script" path="res://GAMEJAM/Map/map.gd" id="1_i25lf"]
-[ext_resource type="PackedScene" path="res://GAMEJAM/scripts/enemies/golem.tscn" id="1_iro7x"]
+[ext_resource type="PackedScene" uid="uid://dgg2ymdq4tx8d" path="res://GAMEJAM/scripts/enemies/golem.tscn" id="1_iro7x"]
 [ext_resource type="PackedScene" uid="uid://cs2ufa018m4tr" path="res://GAMEJAM/scripts/Player.tscn" id="1_o75u4"]
+[ext_resource type="PackedScene" uid="uid://d2yyqkau0qj7g" path="res://GAMEJAM/scripts/enemies/imp.tscn" id="3_i5jej"]
 [ext_resource type="PackedScene" uid="uid://chd6qum8hjl2t" path="res://GAMEJAM/scripts/enemies/deamon.tscn" id="3_qbwem"]
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_i25lf")
 
 [node name="Mainlevel" parent="." instance=ExtResource("1_hbmsb")]
+
+[node name="Imp3" parent="." instance=ExtResource("3_i5jej")]
+position = Vector2(1177, 198)
 
 [node name="Player" parent="." instance=ExtResource("1_o75u4")]
 position = Vector2(93, 109)
@@ -25,5 +29,22 @@ scale = Vector2(2, 2)
 position = Vector2(845, 365)
 scale = Vector2(2, 2)
 
-[node name="Golem" parent="." instance=ExtResource("1_iro7x")]
-position = Vector2(296, 123)
+[node name="Golem2" parent="." instance=ExtResource("1_iro7x")]
+position = Vector2(1256, 313)
+
+[node name="Golem3" parent="." instance=ExtResource("1_iro7x")]
+position = Vector2(820, 639)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 652.0
+offset_top = 97.0
+offset_right = 1073.0
+offset_bottom = 302.0
+text = "Abys mohl používat runy musíš příjít ke kamenům 
+
+fire -> e
+lighting -> t
+water -> f
+wind -> r
+por použití spellu je třeba použít kombinaci 2 run, jako
+ee - fireball"
