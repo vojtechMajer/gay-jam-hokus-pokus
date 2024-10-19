@@ -1,6 +1,5 @@
-[gd_scene load_steps=9 format=3 uid="uid://cs2ufa018m4tr"]
+[gd_scene load_steps=8 format=3 uid="uid://cs2ufa018m4tr"]
 
-[ext_resource type="Script" path="res://GAMEJAM/scripts/Player.cs" id="1_lt7v7"]
 [ext_resource type="Texture2D" uid="uid://dhg2ro1cnpmok" path="res://GAMEJAM/sprites/mc_character_spritesheet_final.png" id="2_n7h81"]
 [ext_resource type="Script" path="res://GAMEJAM/scripts/casting.gd" id="4_mgifc"]
 
@@ -62,10 +61,8 @@ _data = {
 "walk": SubResource("Animation_stmdi")
 }
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("CastingManager")]
+[node name="Player" type="CharacterBody2D"]
 disable_mode = 2
-script = ExtResource("1_lt7v7")
-CastingManager = NodePath("CastingManager")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, 0)
