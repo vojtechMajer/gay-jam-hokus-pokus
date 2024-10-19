@@ -248,7 +248,7 @@ size = Vector2(60.9404, 33.1153)
 [sub_resource type="CircleShape2D" id="CircleShape2D_3yr2m"]
 radius = 46.9445
 
-[node name="Level" type="Node2D" node_paths=PackedStringArray("ruins")]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("ruins")]
 script = ExtResource("1_k5ktj")
 ruins = [NodePath("Water"), NodePath("Fire"), NodePath("Lighting"), NodePath("Wind")]
 

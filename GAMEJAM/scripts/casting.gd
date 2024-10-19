@@ -20,16 +20,25 @@ func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed("lightning")):
 		Combo[checkOpen()] = 4
 	if ((Combo[0] == 1) && (Combo[1] == 1)):
-		CastSpell("hsihj")
-	if ((Combo[0] == 1) && (Combo[1] == 2)):pass
-	if ((Combo[0] == 1) && (Combo[1] == 3)):pass
-	if ((Combo[0] == 1) && (Combo[1] == 4)):pass
-	if ((Combo[0] == 2) && (Combo[1] == 2)):pass
-	if ((Combo[0] == 2) && (Combo[1] == 3)):pass
-	if ((Combo[0] == 2) && (Combo[1] == 4)):pass
-	if ((Combo[0] == 3) && (Combo[1] == 3)):pass
-	if ((Combo[0] == 3) && (Combo[1] == 4)):pass
-	if ((Combo[0] == 4) && (Combo[1] == 4)):pass
+		CastSpell("fireball")
+	if ((Combo[0] == 1) && (Combo[1] == 2)):
+		CastSpell("fire_water")
+	if ((Combo[0] == 1) && (Combo[1] == 3)):
+		CastSpell("fire_wind")
+	if ((Combo[0] == 1) && (Combo[1] == 4)):
+		CastSpell("fire_lighting")
+	if ((Combo[0] == 2) && (Combo[1] == 2)):
+		CastSpell("water")
+	if ((Combo[0] == 2) && (Combo[1] == 3)):
+		pass
+	if ((Combo[0] == 2) && (Combo[1] == 4)):
+		pass
+	if ((Combo[0] == 3) && (Combo[1] == 3)):
+		CastSpell("wind")
+	if ((Combo[0] == 3) && (Combo[1] == 4)):
+		pass
+	if ((Combo[0] == 4) && (Combo[1] == 4)):
+		pass
 
 
 func checkOpen():
@@ -42,7 +51,7 @@ func checkOpen():
 func CastSpell(spellname):
 	Combo[0]=null
 	Combo[1]=null
-	var spell =fire.instantiate()
+	var spell =load("res://GAMEJAM/particles/"+spellname+".tscn").instantiate()
 	print(global_position.angle_to(get_global_mouse_position()))
 	spell.dir =  (get_angle_to(get_global_mouse_position()))
 	spell.spawnPoint = global_position

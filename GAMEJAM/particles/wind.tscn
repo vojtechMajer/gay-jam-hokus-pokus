@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4uap0v4pedxk"]
+[gd_scene load_steps=3 format=3 uid="uid://c4uap0v4pedxk"]
+
+[ext_resource type="Script" path="res://GAMEJAM/particles/wind.gd" id="1_asuj6"]
 
 [sub_resource type="Curve" id="Curve_gbr76"]
 _data = [Vector2(0.0168539, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.428571), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [node name="wind" type="Area2D"]
+script = ExtResource("1_asuj6")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 amount = 1000
@@ -20,3 +23,8 @@ scale_amount_curve = SubResource("Curve_gbr76")
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, 0, 570, -100, 570, 100)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
