@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cs2ufa018m4tr" path="res://GAMEJAM/scripts/Player.tscn" id="1_o75u4"]
 [ext_resource type="TileSet" uid="uid://ck703e02qwxgr" path="res://GAMEJAM/tiles_map.tres" id="1_vwc7u"]
-[ext_resource type="Script" path="res://GAMEJAM/scripts/enemies/EnemySelector.cs" id="3_070nb"]
+[ext_resource type="PackedScene" uid="uid://chd6qum8hjl2t" path="res://GAMEJAM/scripts/enemies/deamon.tscn" id="3_qbwem"]
 
 [node name="Map" type="Node2D"]
 
@@ -16,6 +16,10 @@ MaxDcc = 4000.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
-[node name="Enemy" type="Node2D" parent="."]
-position = Vector2(214, 75)
-script = ExtResource("3_070nb")
+[node name="Deamon" parent="." instance=ExtResource("3_qbwem")]
+position = Vector2(225, 1)
+scale = Vector2(2, 2)
+
+[node name="Deamon2" parent="." instance=ExtResource("3_qbwem")]
+position = Vector2(310, 2)
+scale = Vector2(2, 2)

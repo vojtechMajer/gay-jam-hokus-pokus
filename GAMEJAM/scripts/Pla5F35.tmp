@@ -62,7 +62,6 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("CastingManager")]
-disable_mode = 2
 script = ExtResource("1_lt7v7")
 CastingManager = NodePath("CastingManager")
 

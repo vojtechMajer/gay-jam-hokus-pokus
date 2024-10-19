@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://chd6qum8hjl2t"]
+
+[ext_resource type="Texture2D" uid="uid://btp1lwfl6j7r8" path="res://GAMEJAM/sprites/toucher_spritesheet_final.png" id="1_4tu5n"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ou2i6"]
+
+[node name="Deamon" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ou2i6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+texture = ExtResource("1_4tu5n")
+hframes = 8
+vframes = 4
