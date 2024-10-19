@@ -19,7 +19,6 @@ public partial class Player : CharacterBody2D
 
 	
 	public Vector2 Pos { get; set; }
-	public int HP { get; set; }
 	Vector2 acceleration = Vector2.Zero;
 
 	//string []MyInputs = {"Move_L", "Move_R", "Move_U", "Move_D"};

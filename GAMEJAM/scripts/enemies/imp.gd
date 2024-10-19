@@ -42,3 +42,4 @@ func _on_timer_2_timeout() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if (body.name == "Player"):
 		player_enter_attack_zone.emit()
+		Global.HP+=-40

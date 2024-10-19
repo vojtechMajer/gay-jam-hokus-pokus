@@ -32,11 +32,13 @@ func _on_timer_timeout() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if (body.name == "Player"):
 		player_enter_attack_zone.emit()
+		Global.HP+=-5
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	var bodies = smash_area.get_overlapping_bodies()
 	for body in bodies:
 		if (body.name == "Player"):
+				Global.HP+=-35
 				player_enter_attack_zone.emit(damage)
 	animated_sprite_2d.play("move")
 	
