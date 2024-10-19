@@ -1,13 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://biels6pa7naqe"]
+[gd_scene load_steps=9 format=3 uid="uid://biels6pa7naqe"]
 
-[ext_resource type="Script" path="res://GAMEJAM/scripts/main_menu.gd" id="1_r03ho"]
-[ext_resource type="Texture2D" path="res://GAMEJAM/sprites/kenney_assets/Transparent border/panel-transparent-border-023.png" id="2_mfxek"]
-[ext_resource type="Theme" path="res://GAMEJAM/sprites/kenney_assets/main_menu.tres" id="3_bvw4y"]
-[ext_resource type="Texture2D" path="res://GAMEJAM/sprites/kenney_assets/Transparent border/panel-transparent-border-021.png" id="4_qmodw"]
+[ext_resource type="Script" path="res://GAMEJAM/scripts/main_menu.gd" id="1_nq8lb"]
+[ext_resource type="Theme" uid="uid://5yln7rijkqqp" path="res://GAMEJAM/UI/main_menu.tres" id="2_c6rr3"]
+[ext_resource type="Texture2D" uid="uid://bh5f7fsnx2i5n" path="res://GAMEJAM/UI/kenney_fantasy-ui-borders/PNG/kenney_assets/Panel/panel-019.png" id="2_i2h3t"]
+[ext_resource type="Texture2D" uid="uid://cu80wuotkkq0d" path="res://GAMEJAM/UI/kenney_fantasy-ui-borders/PNG/kenney_assets/Panel/panel-029.png" id="3_nq135"]
 [ext_resource type="FontFile" uid="uid://bfr43sypgubgj" path="res://resources/pixolletta8px/Pixolletta8px.ttf" id="5_ge2j4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gew3q"]
-texture = ExtResource("4_qmodw")
+texture = ExtResource("3_nq135")
 texture_margin_left = 16.0
 texture_margin_top = 16.0
 texture_margin_right = 16.0
@@ -16,77 +16,70 @@ axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(0, 0, 48, 48)
 
-[node name="MainMenu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_r03ho")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_skltp"]
+
+[sub_resource type="Theme" id="Theme_q6nki"]
+Panel/styles/panel = SubResource("StyleBoxTexture_skltp")
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_nq8lb")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-modulate = Color(0.288518, 0.288518, 0.288518, 1)
-layout_mode = 1
+modulate = Color(0.266575, 0.266575, 0.266575, 1)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -189.0
-offset_top = -211.0
-offset_right = 189.0
-offset_bottom = 211.0
+offset_left = 408.0
+offset_top = 152.0
+offset_right = 744.0
+offset_bottom = 536.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_mfxek")
-region_rect = Rect2(0, 0, 48, 48)
+texture = ExtResource("2_i2h3t")
 patch_margin_left = 14
 patch_margin_top = 14
 patch_margin_right = 14
 patch_margin_bottom = 14
 axis_stretch_horizontal = 1
-axis_stretch_vertical = 2
-
-[node name="Start" type="Button" parent="."]
-layout_mode = 0
-offset_left = 488.0
-offset_top = 281.0
-offset_right = 666.0
-offset_bottom = 346.0
-tooltip_text = "ftjftjfthfth"
-theme = ExtResource("3_bvw4y")
-text = "Play"
-
-[node name="Quit" type="Button" parent="."]
-layout_mode = 0
-offset_left = 488.0
-offset_top = 393.0
-offset_right = 666.0
-offset_bottom = 458.0
-tooltip_text = "ftjftjfthfth"
-theme = ExtResource("3_bvw4y")
-text = "Quit"
+axis_stretch_vertical = 1
 
 [node name="Panel" type="Panel" parent="."]
 modulate = Color(0.718317, 0.537343, 1.92523e-07, 1)
-layout_mode = 0
 offset_left = 432.0
-offset_top = 145.0
+offset_top = 184.0
 offset_right = 720.0
-offset_bottom = 217.0
+offset_bottom = 256.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_gew3q")
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(0.111197, 0.111197, 0.111197, 1)
-layout_mode = 0
 offset_left = 456.0
-offset_top = 161.0
+offset_top = 200.0
 offset_right = 704.0
-offset_bottom = 201.0
+offset_bottom = 240.0
+theme = SubResource("Theme_q6nki")
 theme_override_fonts/font = ExtResource("5_ge2j4")
 theme_override_font_sizes/font_size = 40
 text = "Rune Caster"
 
+[node name="Start" type="Button" parent="."]
+offset_left = 488.0
+offset_top = 320.0
+offset_right = 666.0
+offset_bottom = 385.0
+theme = ExtResource("2_c6rr3")
+text = "Play"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 488.0
+offset_top = 416.0
+offset_right = 666.0
+offset_bottom = 481.0
+theme = ExtResource("2_c6rr3")
+text = "Quit"
+
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_start_pressed"]
