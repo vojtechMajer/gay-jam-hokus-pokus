@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://dmktvjgfa4l7c"]
+[gd_scene load_steps=12 format=4 uid="uid://dmktvjgfa4l7c"]
 
 [ext_resource type="Texture2D" uid="uid://74wp3qbn33un" path="res://GAMEJAM/sprites/gamejam_game_sprite_v2.png" id="1_ady2w"]
 [ext_resource type="Script" path="res://GAMEJAM/Levels/sprite_2d.gd" id="1_k5ktj"]
 [ext_resource type="Texture2D" uid="uid://bamv14dxrw32r" path="res://GAMEJAM/sprites/rune-pickups/runes-water.png" id="3_f8jps"]
+[ext_resource type="Script" path="res://GAMEJAM/Levels/WaterArea.gd" id="4_1lq3m"]
 [ext_resource type="Texture2D" uid="uid://1vqmtl37wt77" path="res://GAMEJAM/sprites/rune-pickups/rune-fire.png" id="4_rnpiy"]
 [ext_resource type="Texture2D" uid="uid://domttnvxgsy2q" path="res://GAMEJAM/sprites/rune-pickups/rune-lighting.png" id="5_pvrw6"]
 [ext_resource type="Texture2D" uid="uid://dcwwivuu31ky3" path="res://GAMEJAM/sprites/rune-pickups/runes-wind.png" id="6_jvxok"]
@@ -267,9 +268,10 @@ texture = ExtResource("3_f8jps")
 position = Vector2(0, 12.8802)
 shape = SubResource("RectangleShape2D_5o35y")
 
-[node name="Area2D" type="Area2D" parent="Water"]
+[node name="WaterArea" type="Area2D" parent="Water"]
+script = ExtResource("4_1lq3m")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Water/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water/WaterArea"]
 position = Vector2(-0.525348, 2.62674)
 shape = SubResource("CircleShape2D_3yr2m")
 
@@ -284,9 +286,9 @@ texture = ExtResource("4_rnpiy")
 position = Vector2(0, 12.8802)
 shape = SubResource("RectangleShape2D_5o35y")
 
-[node name="Area2D" type="Area2D" parent="Fire"]
+[node name="FireArea" type="Area2D" parent="Fire"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Fire/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fire/FireArea"]
 position = Vector2(-0.525348, 2.62674)
 shape = SubResource("CircleShape2D_3yr2m")
 
@@ -301,9 +303,9 @@ texture = ExtResource("5_pvrw6")
 position = Vector2(0, 12.8802)
 shape = SubResource("RectangleShape2D_5o35y")
 
-[node name="Area2D" type="Area2D" parent="Lighting"]
+[node name="LightingArea" type="Area2D" parent="Lighting"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lighting/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lighting/LightingArea"]
 position = Vector2(-0.525348, 2.62674)
 shape = SubResource("CircleShape2D_3yr2m")
 
@@ -318,8 +320,13 @@ texture = ExtResource("6_jvxok")
 position = Vector2(0, 12.8802)
 shape = SubResource("RectangleShape2D_5o35y")
 
-[node name="Area2D" type="Area2D" parent="Wind"]
+[node name="WindArea" type="Area2D" parent="Wind"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wind/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wind/WindArea"]
 position = Vector2(-0.525348, 2.62674)
 shape = SubResource("CircleShape2D_3yr2m")
+
+[connection signal="body_entered" from="Water/WaterArea" to="." method="_on_water_area_body_entered"]
+[connection signal="body_entered" from="Fire/FireArea" to="." method="_on_fire_area_body_entered"]
+[connection signal="body_entered" from="Lighting/LightingArea" to="." method="_on_lighting_area_body_entered"]
+[connection signal="body_entered" from="Wind/WindArea" to="." method="_on_wind_area_body_entered"]

@@ -1,8 +1,7 @@
-extends Node2D
+extends Node
 
 var sizeOfLevel : Vector2i
 @export var ruins: Array[Sprite2D]
-
 # Velikost pro náhodné umístění uvnitř kvadrantu
 const OFFSET = 128
 
@@ -25,7 +24,6 @@ func createPositionOfRuins():
 	]
 	# Pro každý sprite v allRuins
 	for sprite in ruins:
-		
 		# Náhodně vyber kvadrant
 		var random_index = randi_range(0, 3)
 		var selected_quadrant
@@ -40,3 +38,23 @@ func createPositionOfRuins():
 			# Nastav pozici sprite
 		quadrant_acceptation[random_index]=1
 		sprite.position = random_position
+
+
+func _on_water_area_body_entered(body: CharacterBody2D) -> void:
+	#array začíná od nuly, water je indikováná normálně jako 2
+	Global.unlocked[2-1]=1
+	print(Global.unlocked[1])
+
+func _on_fire_area_body_entered(body: CharacterBody2D) -> void:
+	Global.unlocked[1-1]=1
+	print("AHOOOJ")
+
+
+func _on_lighting_area_body_entered(body: CharacterBody2D) -> void:
+	Global.unlocked[4-1]=1
+	print("AHOOOJ")
+
+
+func _on_wind_area_body_entered(body: CharacterBody2D) -> void:
+	Global.unlocked[3-1]=1
+	print("AHOOOJ")
