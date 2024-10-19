@@ -1,5 +1,6 @@
 extends Node2D
-
+var cooldownFaster : bool = false
+var cooldownSlower : bool = false
 var Combo=[null,null]
 @onready
 var map= get_tree().get_root().get_node("Map")
@@ -19,6 +20,7 @@ func _process(delta: float) -> void:
 		Combo[checkOpen()] = 4
 	if ((Combo[0] == 1) && (Combo[1] == 1)):
 		CastSpell("fireball",false)
+		
 	if ((Combo[0] == 1) && (Combo[1] == 2)):
 		CastSpell("fire_water",false)
 	if ((Combo[0] == 1) && (Combo[1] == 3)):
@@ -62,3 +64,11 @@ func CastSpell(spellname,docked):
 		self.add_child(spell)
 	else:
 		map.add_child.call_deferred(spell)
+
+
+func _on_timer_faster_timeout() -> void:
+	pass # Replace with function body.
+
+
+func _on_timer_slower_timeout() -> void:
+	pass # Replace with function body.

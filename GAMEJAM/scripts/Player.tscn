@@ -87,3 +87,13 @@ libraries = {
 
 [node name="Node" type="Node2D" parent="."]
 script = ExtResource("4_mgifc")
+
+[node name="TimerFaster" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[node name="TimerSlower" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="timeout" from="TimerFaster" to="Node" method="_on_timer_faster_timeout"]
+[connection signal="timeout" from="TimerSlower" to="Node" method="_on_timer_slower_timeout"]
