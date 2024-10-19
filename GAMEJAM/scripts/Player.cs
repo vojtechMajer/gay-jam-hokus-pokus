@@ -9,7 +9,7 @@ public partial class Player : CharacterBody2D
 	[Export]
 	public CastingManager CastingManager { get; set; }
 	[Export]
-	public float MaxSpeed { get; set; } = 1000;
+	public float MaxSpeed { get; set; } = 400;
 	[Export]
 	public float MaxAcc { get; set; } = 2000;
 	[Export]
@@ -70,9 +70,9 @@ public partial class Player : CharacterBody2D
 
 		acceleration = new Vector2(MaxAcc * (x_right ^ x_left?(x_right?1:-1):0), MaxAcc * (y_up ^ y_down?(y_up?-1:1):0));
 
-		if(vel_x>0)
+		if(x_right)
 			_sprite.FlipH =false;
-		if(vel_x<0)
+		if(x_left)
 			_sprite.FlipH =true;
 		if(x_right ^ x_left)
 		{
