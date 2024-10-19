@@ -4,8 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dhg2ro1cnpmok" path="res://GAMEJAM/sprites/mc_character_spritesheet_final.png" id="2_n7h81"]
 [ext_resource type="Script" path="res://GAMEJAM/scripts/casting.gd" id="4_mgifc"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_812ob"]
-radius = 63.5059
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4antl"]
+radius = 13.0
+height = 60.0
 
 [sub_resource type="Animation" id="Animation_tbiag"]
 length = 0.001
@@ -75,7 +76,7 @@ vframes = 4
 frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_812ob")
+shape = SubResource("CapsuleShape2D_4antl")
 
 [node name="CastingManager" type="Node2D" parent="."]
 
