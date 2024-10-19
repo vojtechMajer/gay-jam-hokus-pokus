@@ -20,21 +20,21 @@ func _process(delta: float) -> void:
 	if (Input.is_action_just_pressed("lightning")):
 		Combo[checkOpen()] = 4
 	if ((Combo[0] == 1) && (Combo[1] == 1)):
-		CastSpell("fireball")
+		CastSpell("fireball",false)
 	if ((Combo[0] == 1) && (Combo[1] == 2)):
-		CastSpell("fire_water")
+		CastSpell("fire_water",false)
 	if ((Combo[0] == 1) && (Combo[1] == 3)):
-		CastSpell("fire_wind")
+		CastSpell("fire_wind",true)
 	if ((Combo[0] == 1) && (Combo[1] == 4)):
-		CastSpell("fire_lighting")
+		CastSpell("fire_lightning",false)
 	if ((Combo[0] == 2) && (Combo[1] == 2)):
-		CastSpell("water")
+		CastSpell("water",true)
 	if ((Combo[0] == 2) && (Combo[1] == 3)):
 		pass
 	if ((Combo[0] == 2) && (Combo[1] == 4)):
 		pass
 	if ((Combo[0] == 3) && (Combo[1] == 3)):
-		CastSpell("wind")
+		CastSpell("wind",true)
 	if ((Combo[0] == 3) && (Combo[1] == 4)):
 		pass
 	if ((Combo[0] == 4) && (Combo[1] == 4)):
@@ -48,7 +48,7 @@ func checkOpen():
 		return 1
 
 
-func CastSpell(spellname):
+func CastSpell(spellname,docked):
 	Combo[0]=null
 	Combo[1]=null
 	var spell =load("res://GAMEJAM/particles/"+spellname+".tscn").instantiate()
@@ -56,4 +56,7 @@ func CastSpell(spellname):
 	spell.dir =  (get_angle_to(get_global_mouse_position()))
 	spell.spawnPoint = global_position
 	spell.rt = rotation
-	map.add_child.call_deferred(spell)
+	if (docked):
+		self.add_child(spell)
+	else:
+		map.add_child.call_deferred(spell)
