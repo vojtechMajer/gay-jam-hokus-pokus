@@ -7,10 +7,7 @@
 
 [node name="Map" type="Node2D"]
 
-[node name="Golem" parent="." instance=ExtResource("1_iro7x")]
-
-[node name="Mainlevel" parent="." node_paths=PackedStringArray("ruins") instance=ExtResource("1_hbmsb")]
-ruins = []
+[node name="Mainlevel" parent="." instance=ExtResource("1_hbmsb")]
 
 [node name="Player" parent="." instance=ExtResource("1_o75u4")]
 
@@ -23,3 +20,5 @@ scale = Vector2(2, 2)
 [node name="Deamon2" parent="." instance=ExtResource("3_qbwem")]
 position = Vector2(845, 365)
 scale = Vector2(2, 2)
+
+[node name="Golem" parent="." instance=ExtResource("1_iro7x")]

@@ -20,7 +20,8 @@ func _process(delta: float) -> void:
 		Combo[checkOpen()] = 4
 	if ((Combo[0] == 1) && (Combo[1] == 1)):
 		CastSpell("fireball",false)
-		
+		cooldownFaster=true
+		$"../TimerFaster".start()
 	if ((Combo[0] == 1) && (Combo[1] == 2)):
 		CastSpell("fire_water",false)
 	if ((Combo[0] == 1) && (Combo[1] == 3)):
@@ -67,7 +68,7 @@ func CastSpell(spellname,docked):
 
 
 func _on_timer_faster_timeout() -> void:
-	pass # Replace with function body.
+	cooldownFaster = false
 
 
 func _on_timer_slower_timeout() -> void:
