@@ -45,6 +45,8 @@ initial_velocity_max = 200.0
 gravity = Vector3(0, 0, 0)
 
 [node name="Fireball" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_ufma3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

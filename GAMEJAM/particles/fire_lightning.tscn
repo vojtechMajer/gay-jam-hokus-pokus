@@ -36,6 +36,8 @@ glow_blend_mode = 0
 glow_hdr_scale = 0.8
 
 [node name="fire_lightning" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_t4w7b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

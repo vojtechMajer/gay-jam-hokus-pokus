@@ -13,6 +13,8 @@ colors = PackedColorArray(0.35239, 0.552839, 1, 1, 1, 1, 1, 1)
 size = Vector2(353, 4)
 
 [node name="Fireball" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_abuyh")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
