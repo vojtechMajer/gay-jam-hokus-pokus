@@ -15,6 +15,10 @@ run/main_scene="res://GAMEJAM/Map/Map.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+HUD="*res://GAMEJAM/UI/HUD.tscn"
+
 [dotnet]
 
 project/assembly_name="test"
