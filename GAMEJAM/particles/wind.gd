@@ -16,7 +16,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position += Vector2(SPEED,0).rotated(dir)
+	position += Vector2(0,0).rotated(dir)
+	look_at(get_global_mouse_position())
 
 
 func _on_timer_timeout() -> void:

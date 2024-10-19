@@ -25,6 +25,7 @@ scale_amount_curve = SubResource("Curve_gbr76")
 polygon = PackedVector2Array(0, 0, 570, -100, 570, 100)
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

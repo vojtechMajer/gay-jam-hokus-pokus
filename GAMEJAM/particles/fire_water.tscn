@@ -1,4 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0i3coxj53peo"]
+[gd_scene load_steps=10 format=3 uid="uid://d0i3coxj53peo"]
+
+[ext_resource type="Script" path="res://GAMEJAM/particles/fire_water.gd" id="1_ufma3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xpdmu"]
 radius = 15.0
@@ -43,6 +45,7 @@ initial_velocity_max = 200.0
 gravity = Vector3(0, 0, 0)
 
 [node name="Fireball" type="Area2D"]
+script = ExtResource("1_ufma3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_xpdmu")
@@ -56,6 +59,18 @@ process_material = SubResource("ParticleProcessMaterial_aexu7")
 lifetime = 0.5
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
 amount = 150
 process_material = SubResource("ParticleProcessMaterial_bhnm7")
 explosiveness = 1.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

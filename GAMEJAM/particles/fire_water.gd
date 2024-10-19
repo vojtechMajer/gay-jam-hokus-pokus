@@ -1,7 +1,8 @@
 extends Area2D
 
 @export 
-var SPEED = 10
+var SPEED = 4
+
 
 var dir :float
 var rt :float
@@ -16,15 +17,27 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position += Vector2(0,0).rotated(dir)
-	look_at(get_global_mouse_position())
+	position += Vector2(SPEED,0).rotated(dir)
 
 
 func _on_timer_timeout() -> void:
-	self.queue_free()
+	self.get_child(2).emitting=false
+	self.get_child(3).emitting=true
+	self.get_child(0).disabled=true
+	self.get_child(1).disabled=false
+	
+
 
 
 
 func _on_body_entered(body: Node2D) -> void:
 	print("hit")
-	self.get_child(1).emitting=false
+	self.get_child(2).emitting=false
+	self.get_child(3).emitting=true
+	self.get_child(0).disabled=true
+	self.get_child(1).disabled=false
+	$Timer2.start()
+
+
+func _on_timer_2_timeout() -> void:
+	self.queue_free()
