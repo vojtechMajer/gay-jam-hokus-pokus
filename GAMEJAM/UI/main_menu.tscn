@@ -69,6 +69,7 @@ offset_left = 488.0
 offset_top = 320.0
 offset_right = 666.0
 offset_bottom = 385.0
+mouse_filter = 1
 theme = ExtResource("2_c6rr3")
 text = "Play"
 
@@ -77,9 +78,10 @@ offset_left = 488.0
 offset_top = 416.0
 offset_right = 666.0
 offset_bottom = 481.0
+mouse_filter = 1
 theme = ExtResource("2_c6rr3")
 text = "Quit"
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
