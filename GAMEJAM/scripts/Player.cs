@@ -7,8 +7,6 @@ using System.Security;
 public partial class Player : CharacterBody2D
 {
 	[Export]
-	public CastingManager CastingManager { get; set; }
-	[Export]
 	public float MaxSpeed { get; set; } = 1000;
 	[Export]
 	public float MaxAcc { get; set; } = 2000;
