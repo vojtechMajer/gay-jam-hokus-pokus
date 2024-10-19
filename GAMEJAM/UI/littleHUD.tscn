@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d18dix65e4o73"]
+[gd_scene load_steps=10 format=3 uid="uid://6bxsu5ri147p"]
 
 [ext_resource type="Texture2D" uid="uid://xg1el5ojlwxg" path="res://GAMEJAM/UI/UI_Textures/heatlh-border.png" id="1_iscso"]
 [ext_resource type="Texture2D" uid="uid://b7rwqvskk2pmx" path="res://GAMEJAM/UI/UI_Textures/health-fill.png" id="2_5irwf"]

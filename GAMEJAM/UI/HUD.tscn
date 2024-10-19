@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bijxj8pirwnd4"]
 
-[ext_resource type="PackedScene" uid="uid://d18dix65e4o73" path="res://GAMEJAM/UI/littleHUD.tscn" id="1_p28hq"]
+[ext_resource type="PackedScene" uid="uid://6bxsu5ri147p" path="res://GAMEJAM/UI/littleHUD.tscn" id="1_p28hq"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
