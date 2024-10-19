@@ -156,7 +156,7 @@ scale = Vector2(2, 2)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_6284m")
-speed = 100
+speed = 500
 
 [node name="Area2D" type="Area2D" parent="."]
 
